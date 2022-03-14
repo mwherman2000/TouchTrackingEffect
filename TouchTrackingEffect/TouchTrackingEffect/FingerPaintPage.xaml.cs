@@ -32,7 +32,7 @@ namespace TouchTrackingEffectDemos
         void OnClearButtonClicked(object sender, EventArgs args)
         {
             completedPolylines.Clear(); 
-            canvasView.InvalidateSurface();
+            //mwh canvasView.InvalidateSurface();
         }
 
         void OnTouchEffectAction(object sender, TouchActionEventArgs args)
@@ -55,7 +55,7 @@ namespace TouchTrackingEffectDemos
                         polyline.Path.MoveTo(ConvertToPixel(args.Location));
 
                         inProgressPolylines.Add(args.Id, polyline);
-                        canvasView.InvalidateSurface();
+                        //mwh canvasView.InvalidateSurface();
                     }
                     break;
 
@@ -64,7 +64,7 @@ namespace TouchTrackingEffectDemos
                     {
                         FingerPaintPolyline polyline = inProgressPolylines[args.Id];
                         polyline.Path.LineTo(ConvertToPixel(args.Location));
-                        canvasView.InvalidateSurface();
+                        //mwh canvasView.InvalidateSurface();
                     }
                     break;
 
@@ -73,7 +73,7 @@ namespace TouchTrackingEffectDemos
                     {
                         completedPolylines.Add(inProgressPolylines[args.Id]);
                         inProgressPolylines.Remove(args.Id);
-                        canvasView.InvalidateSurface();
+                        //mwh canvasView.InvalidateSurface();
                     }
                     break;
 
@@ -81,7 +81,7 @@ namespace TouchTrackingEffectDemos
                     if (inProgressPolylines.ContainsKey(args.Id))
                     {
                         inProgressPolylines.Remove(args.Id);
-                        canvasView.InvalidateSurface();
+                        //mwh canvasView.InvalidateSurface();
                     }
                     break;
             }
@@ -109,13 +109,15 @@ namespace TouchTrackingEffectDemos
 
         SKPoint ConvertToPixel(Point pt)
         {
-            return new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
-                               (float)(canvasView.CanvasSize.Height * pt.Y / canvasView.Height));
+            //mwh return new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
+            //mwh                   (float)(canvasView.CanvasSize.Height * pt.Y / canvasView.Height));
+            return new SKPoint(0, 0);
         }
 
         float ConvertToPixel(float fl)
         {
-            return (float)(canvasView.CanvasSize.Width * fl / canvasView.Width);
+            //mwh return (float)(canvasView.CanvasSize.Width * fl / canvasView.Width);
+            return 0;
         }
     }
 }

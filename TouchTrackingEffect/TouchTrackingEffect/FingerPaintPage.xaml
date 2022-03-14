@@ -70,8 +70,8 @@
               Grid.ColumnSpan="3"
               BackgroundColor="White">
 
-            <skia:SKCanvasView x:Name="canvasView"
-                               PaintSurface="OnCanvasViewPaintSurface" />
+            <!-- skia:SKCanvasView x:Name="canvasView"
+                               PaintSurface="OnCanvasViewPaintSurface" /-->
             <Grid.Effects>
                 <tt:TouchEffect Capture="True"
                                 TouchAction="OnTouchEffectAction" />
